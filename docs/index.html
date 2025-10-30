@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CryptoAI 助手（移动版）</title>
+<link rel="manifest" href="manifest.json" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <header class="top"><h1>CryptoAI 助手</h1><p class="sub">智能监控 · 多源行情 · 实时推送</p></header>
+  <main class="card">
+    <label>监控代币（支持英文 id、符号、中文名或含数字的代币）</label>
+    <input id="symbols" placeholder="例如：bitcoin,ETH,币安币,ABC123" value="bitcoin,ethereum" />
+    <div class="row">
+      <label>刷新间隔（秒） <input id="interval" type="number" value="60" min="10" /></label>
+      <label>是否启用语音 <input id="enableTTS" type="checkbox" checked /></label>
+    </div>
+    <div class="row">
+      <button id="start">开始监控</button>
+      <button id="stop" style="display:none">停止</button>
+      <button id="testPush">测试推送</button>
+    </div>
+    <section class="panel">
+      <h3>推送设置</h3>
+      <label>Cloudflare Worker URL<input id="workerUrl" placeholder="https://xxx.workers.dev" /></label>
+      <label>PushPlus Token（可选）<input id="pushToken" placeholder="仅测试或本地推送时使用" /></label>
+      <label>Telegram Token（可选）<input id="tgToken" placeholder="仅测试用，不推荐放前端" /></label>
+      <label>Telegram Chat ID（可选）<input id="tgChat" placeholder="仅测试用，不推荐放前端" /></label>
+    </section>
+    <section class="panel">
+      <h3>监控列表</h3>
+      <div id="list"></div>
+    </section>
+    <section class="panel">
+      <h3>日志</h3>
+      <pre id="log"></pre>
+    </section>
+  </main>
+  <footer class="foot">黑金主题 · PWA · 支持中文代币名 · 由 CryptoAI 提供</footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
